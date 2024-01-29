@@ -34,20 +34,32 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-  console.log(`You answered ${candidateAnswers}. The correct answers are ${correctAnswers}.`);
+  console.log(`You answered ${candidateAnswers}.\nThe correct answers are ${correctAnswers}.`);
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  let candidateGrade = 0;
+  let correctGrade = 5;
 
+  for (let i = 0; i < candidateAnswers.length; i++) {
+    if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase())
+    candidateGrade++
+  }
 
+  let grade = (candidateGrade) / (correctGrade) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+  console.log(grade);
   return grade;
 }
 
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Hello, ",candidateName);
+   console.log(`Hello, ${candidateName}`);
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  let grade = gradeQuiz(this.candidateAnswers);
+  if (grade >= 80) {
+    console.log(`Congratulations, ${candidateName}! You have passed the quiz with a score of ${grade}!`)
+  } else {
+    console.log(`You have failed, ${candidateName}. You have failed the quiz with a score of ${grade}.`)
+  }
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
