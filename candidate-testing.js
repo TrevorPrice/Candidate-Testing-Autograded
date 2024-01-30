@@ -45,7 +45,7 @@ function gradeQuiz(candidateAnswers) {
   }
 
   let grade = (candidateGrade) / (correctGrade) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
-  console.log(grade);
+  // console.log(grade);
   return grade;
 }
 
@@ -56,9 +56,9 @@ function runProgram() {
   askQuestion();
   let grade = gradeQuiz(this.candidateAnswers);
   if (grade >= 80) {
-    console.log(`Congratulations, ${candidateName}! You have passed the quiz with a score of ${grade}!`)
+    console.log(`Congratulations, ${candidateName}! You have passed the quiz with a score of ${grade}%!`)
   } else {
-    console.log(`You have failed, ${candidateName}. You have failed the quiz with a score of ${grade}.`)
+    console.log(`You have failed, ${candidateName}. You scored a ${grade}%. You must score at least 80% to pass.`)
   }
 }
 
